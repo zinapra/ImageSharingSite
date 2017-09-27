@@ -1,0 +1,30 @@
+<div class="item active">
+    <div class="container">
+    <h1>Manage albums</h1>
+    <% Object.keys(albums).forEach(function (index) { %>
+            <% if(albums[index].userId== user.id){ %>   
+        <div class="container"> 
+        <div id="slide1" class="masonry">
+        
+            
+            <h3><%= albums[index].name %></h3>            
+            <hr>
+                <% Object.keys(files).forEach(function (key) { %>
+                    <% if(files[key].albumId == albums[index].id){ %>
+                    <div>
+                        <a href="editImage/<%= files[key].id %>">
+                            <img class="col-lg-2 col-md-3 col-sm-4 col-xs-6 grid-item" 
+                                nothing="img-responsive img-thumbnail" 
+                                style="margin-bottom:20px; ax-height:250px" 
+                                src="images/<%= files[key].path %>"> 
+                        </a>
+                    </div>
+                    <% } %>           
+                <% }) %>
+        </div>
+    </div>
+
+        <% } %>
+    <% }) %>
+            </div>
+</div>

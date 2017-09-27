@@ -1,0 +1,50 @@
+<div class="container">
+    <h1>Edit Image</h1>
+    <hr>
+    <div class="row">
+      <!-- left column -->
+      <div class="col-md-3">
+        <div class="text-center">
+          <img class='img-responsive img-thumbnail' src="http://localhost:1337/images/<%= file[0].path %>">          
+        </div>
+      </div>
+      
+      <!-- edit form column -->
+      <div class="col-md-9 personal-info">
+        
+        <h3>Image info</h3>
+        
+        <form class="form-horizontal" role="form" action="/image/update" method="post">
+          <div class="form-group">
+            <label class="col-lg-3 control-label">Tags:</label>
+            <div class="col-lg-8">
+              <input class="form-control" type="text" name="tags" value="<%= file[0].tags %>">
+              <input type="hidden" name="id" value="<%= file[0].id %>">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-lg-3 control-label">Album:</label>
+            <div class="col-lg-8">
+                <select size="1" class="form-control" id="slt_album" name="albumid">                                  
+                    <% Object.keys(albums).forEach(function (key) { %>
+                    <% if(albums[key].userId==user.id) {%>
+                        <option value="<%= albums[key].id%>"><%= albums[key].name %></option>                                       
+                    <% } %>
+                    <% }) %>
+                </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-md-3 control-label"></label>
+            <div class="col-md-8">
+              <button type="submit" class="btn btn-primary">Save Changes</button>
+              <span></span>
+              <input type="reset" class="btn btn-default" value="Cancel">
+            </div>
+          </div>
+        </form>
+      </div>
+  </div>
+</div>
+<hr>
+

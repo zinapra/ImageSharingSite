@@ -1,0 +1,48 @@
+<% if (errors) {%>
+  <% errors.forEach(function (error) { %>
+    <%= __(error) %>
+  <% }) %>
+<% } %>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-9 personal-info">
+      <div class="text-center">
+      <h1 class="text-center login-title">Sign in to continue</h1>
+      <hr>      
+        <form role="form" class="form-horizontal" action="/auth/local" method="post">
+          <div class="form-group">
+            <label class="col-lg-3 control-label">Username or Email:</label>
+              <div class="col-lg-8">
+                <input type="text" class="form-control" name="identifier" placeholder="Username or Email">
+              </div>
+            </label>
+          </div>
+
+          <div class="form-group">
+            <label class="col-lg-3 control-label">Password:</label>
+              <div class="col-lg-8">
+                <input type="password" class="form-control" name="password" placeholder="Password">
+              </div>
+            </label>
+          </div>
+          <div class="form-group">
+            <label class="col-md-3 control-label"></label>
+              <div class="col-md-8">
+                <button type="submit" class="btn btn-primary">Sign in</button>
+              </div>
+            </label>
+          </div>  
+        </form>
+        <div class="form-group">
+          <label class="col-md-3 control-label"></label>
+            <div class="col-md-8">
+              <a href="/register"><button class="btn btn-default">Register</button></a>
+            </div>
+          </label>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>  
+

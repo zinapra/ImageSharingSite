@@ -1,0 +1,74 @@
+
+
+<!-- enctype="multipart/form-data" -->
+<div class="container">
+	<h3>Upload image</h3>
+	<hr>
+	<div class="row">
+		<div class="col-md-9 personal-info">
+			<div class="text-center">
+				<form id="uploadForm" class="form-horizontal"
+				      enctype="multipart/form-data"
+				      action="/file/upload"
+				      method="post">
+				    <div class="form-group">
+            			<label class="col-lg-3 control-label">Image file:</label>
+	            			<div class="col-lg-8">
+					    		<input type="file" class="form-control" name="uploadFile" />
+					    	</div>
+				    </div>
+				    <div class="form-group">	
+				    	<label class="col-lg-3 control-label">Album:</label>
+	            			<div class="col-lg-8">					    		
+					    		<select size="1" class="form-control" id="slt_album" name="albumid">
+									<option value=""> - Select Album - </option>
+									<% Object.keys(albums).forEach(function (key) { %>
+									<option value="<%= albums[key].id%>"><%= albums[key].name %></option>
+									<% }) %>
+								</select>
+					    	</div>
+				    </div>
+				    <div class="form-group">	
+				    	<label class="col-lg-3 control-label">Tags:</label>
+	            			<div class="col-lg-8">
+					    		<input type="text" class="form-control" name="tags" />
+					    	</div>
+				    </div>
+				    <div class="form-group">
+            			<label class="col-md-3 control-label"></label>
+	           				<div class="col-md-8">
+					    		<input type="submit" class="btn btn-primary" value="submit"/>
+					    	</div>
+				    </div>
+				    
+				</form>
+			</div>
+		</div>
+	</div>
+	<hr>
+	<h3>Create album</h3>
+	<div class="row">		
+		<div class="col-md-9 personal-info">
+			<div class="text-center">
+				<form id="uploadForm" class="form-horizontal"
+				      enctype="multipart/form-data"
+				      action="/album/create"
+				      method="post">
+				      <div class="form-group">
+            			<label class="col-lg-3 control-label">Album name:</label>
+            			<div class="col-lg-8">
+				    	<input type="text" class="form-control" name="name" />
+				    	</div>
+				      </div>
+				      <div class="form-group">
+            			<label class="col-md-3 control-label"></label>
+	           				<div class="col-md-8">
+					    		<input type="submit" class="btn btn-primary" value="submit"/>
+					    	</div>
+				    </div>
+				</form>
+			</div>
+		</div>
+	</div>
+
+</div>
